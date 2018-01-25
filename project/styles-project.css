@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+<<<<<<< HEAD
 body {
     min-height: 100%;
     font-family: 'Lato', sans-serif;
@@ -23,4 +24,30 @@ p {
     padding: 2%;
     background-color: white;
     max-width: 1000px;
+=======
+
+/*-----START TYPE STYLES, POSITIONING-----*/
+
+body {
+  min-height: 100%;
+  font-family: 'Lato', sans-serif;
+  font-size: 1em;
+  padding: 5%;
+}
+img {
+  height: 50%;
+  width: 50%;
+}
+h1, h2 {
+  background-color: white;
+  color: #f9ce64;
+  font-size: 1.5em;
+}
+
+p {
+  font-size: 0.8em;
+  padding: 2%;
+  background-color: white;
+  max-width: 1000px;
+>>>>>>> 2f95949b21c8c48eb4e790a2dff2946f78841ebb
 }

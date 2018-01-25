@@ -38,12 +38,21 @@ h2 {
 }
 
 section {
+<<<<<<< HEAD
     width: 35%;
     padding-left: 5%;
     padding-right: 5%;
     padding-top: 2%;
     background: rgba(255, 255, 255, 0.8);
     color: inherit;
+=======
+  width: 30%;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 2%;
+  background: rgba(255, 255, 255, 0.8);
+  color: inherit;
+>>>>>>> 2f95949b21c8c48eb4e790a2dff2946f78841ebb
 }
 
 .studios {
