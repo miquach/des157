@@ -1,0 +1,177 @@
+@charset "UTF-8";
+
+/* Michelle Quach, Winter 2018*/
+
+
+/* Studio 1: Mad Libs*/
+
+
+/*-----START STRUCTURAL STYLES-----*/
+
+body {
+    padding: 1.5%;
+    background: url("../images/blackmirror-intro.gif");
+    background-size: 100%;
+    min-height: 100%;
+    font-family: "proxima-nova-thin", Helvetica, sans-serif;
+}
+
+
+/*-----START ANIMATION STYLES-----*/
+
+@keyframes delay {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+article {
+    background-color: #000000;
+    color: #ffffff;
+    min-height: 450px;
+    min-width: 500px;
+    font-family: "proxima-nova-thin", Helvetica, sans-serif;
+}
+
+form {
+    animation: 25s delay;
+    max-width: 35%;
+    float: left;
+    padding: 2%;
+}
+
+.container {
+    animation: 20s delay;
+    background-color: #000000;
+    color: inherit;
+    min-height: 100%;
+    padding: 5%;
+}
+
+
+/*-----LOAD FONT STYLES-----*/
+
+@font-face {
+    font-family: "proxima-nova-bold";
+    src: url("../fonts/Proxima Nova Alt Bold-webfont.ttf");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "proxima-nova-thin";
+    src: url("../fonts/Proxima Nova Thin-webfont.ttf");
+}
+
+
+/*-----START HEADER STYLES-----*/
+
+h1, h2 {
+    color: #ffffff;
+    background-color: inherit;
+    margin-top: -40px;
+}
+
+h1 {
+    font-family: "proxima-nova-bold", Helvetica, sans-serif;
+    font-size: 4em;
+}
+
+h2 {
+    font-family: "proxima-nova-thin", Helvetica, sans-serif;
+}
+
+
+/*------START FORM and RESULTS STYLES-----*/
+
+section {
+    animation: 5s delay;
+    max-width: 400px;
+    min-height: 500px;
+    float: right;
+    background-image: url(../images/phone-speech.png);
+    background-size: 92%;
+    background-repeat: no-repeat;
+}
+
+p {
+    color: #ffffff;
+    background-color: inherit;
+    padding: 2% 20% 2% 7%;
+    font-size: 0.75em;
+    max-width: 370px;
+}
+
+label {
+    display: inline-block;
+    text-align: left;
+    color: #ffffff;
+    background-color: inherit;
+    padding: 1% 2% 2% 1%;
+    width: 40%;
+}
+
+input {
+    margin: 1%;
+    padding: 1.5%;
+    outline: none;
+    color: #ffffff;
+    background-color: inherit;
+    border-width: 0.08em;
+    border-style: solid;
+    text-align: right;
+}
+
+input[type="reset"], input[type="submit"] {
+    width: 150px;
+    margin-right: 2%;
+    text-align: center;
+    padding: 10px;
+}
+
+input[type="reset"]:hover, input[type="submit"]:hover {
+    background-color: #0c7ec7;
+    color: inherit;
+    border: 0px;
+    cursor: pointer;
+}
+
+
+/*-----START LINK STYLES-----*/
+
+a, a:link, a:visited {
+    text-decoration: none;
+    color: #ffffff;
+    background-color: inherit;
+}
+
+a:hover {
+    color: #00e1bb;
+    text-decoration: underline;
+    background-color: inherit;
+}
+
+a:active {
+    color: #0c7ec7;
+    background-color: inherit;
+}
+
+
+/*-----START FOOTER STYLES-----*/
+
+footer {
+    clear: both;
+    position: fixed;
+    text-align: center;
+    left: 0;
+    bottom: 10px;
+    width: 100%;
+    font-size: 0.8em;
+    padding: 1%;
+}
+
+footer a {
+    margin-right: 50px;
+}

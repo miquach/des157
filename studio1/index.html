@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<!--Michelle Quach's Studio 01: Mad Libs for DES157, Winter 2018-->
+
+<head>
+	<meta charset="UTF-8">
+	<title>Black Mirror Mad Libs</title>
+	<meta name="description" content="Michelle Quach's portal for DES157 class.">
+	<link href="https://necolas.github.io/normalize.css/7.0.0/normalize.css" rel="stylesheet">
+	<link rel="stylesheet" href="styles.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.21/p5.js"></script>
+</head>
+
+<body>
+
+	<!--START MAIN CONTENT-->
+	<div class="container">
+
+		<!--START HEADER-->
+		<header>
+			<h1>FIND YOUR TECHNOLOGICAL FATE</h1>
+			<h2>Star in your very own <em>Black Mirror</em> episode!</h2>
+		</header>
+
+		<article>
+
+			<form name="f">
+				<div>
+					<label for="name">Name</label>
+					<input type="text" id="name" required>
+				</div>
+
+				<div>
+					<label for="num">Number (from 1-5)</label>
+					<input type="text" id="num" required>
+				</div>
+
+				<div>
+					<label for="device">Device</label>
+					<input type="text" id="device" required>
+				</div>
+
+				<div>
+					<label>Pick an existential-technological fear:</label><br>
+					<input type="radio" name="fear" value="Death&trade;"> Death&trade;<br>
+					<input type="radio" name="fear" value="finding out you're on an episode of Black Mirror"> finding out you're on an episode of <em>Black Mirror</em><br>
+					<input type="radio" name="fear" value="the unyielding nature of a cruel universe"> the unyielding nature of a cruel universe<br>
+					<input type="radio" name="fear" value="figuring out that life means nothing after all"> figuring out life means nothing after all<br>
+					<input type="radio" name="fear" value="robots replacing the people around you"> robots replacing the people around you<br>
+					<input type="radio" name="fear" value="artificial intelligence outsmarts humans"> artificial intelligence outsmarts humans<br>
+				</div>
+
+				<div>
+					<input type="reset" value="replay" />
+					<input type="submit" value="tell me" />
+				</div>
+
+			</form>
+			<section id="results" class="hide">
+				<p id="phoneMsg"></p>
+			</section>
+		</article>
+
+		<script src="script.js"></script>
+
+		<!--START FOOTER-->
+		<footer>
+			<a href="https://validator.w3.org/check?uri=referer">Valid HTML 5</a>
+			<a href="https://jigsaw.w3.org/css-validator/check/referer">Valid CSS</a>
+		</footer>
+	</div>
+</body>
+
+</html>
