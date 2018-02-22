@@ -1,0 +1,152 @@
+/*Michelle Quach, Winter 2018*/
+
+
+/*-----FONTS-----*/
+
+@font-face {
+    font-family: 'gotham-bold';
+    src: url('fonts/gotham-bold.ttf');
+}
+
+@font-face {
+    font-family: 'gotham-book';
+    src: url('fonts/gotham-book.otf');
+}
+
+
+/*-----ANIMATION styles-----*/
+
+@keyframes light-timer {
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+/*-----STRUCTURAL styles-----*/
+html {
+  background-color: #000000;
+  color:inherit;
+}
+
+#overlay {
+    animation: 6s infinite light-timer;
+    background-color: #000000;
+    color: inherit;
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+    top: 0px;
+    left: 0px;
+    z-index: 2;
+}
+
+#galaxy {
+    position: absolute;
+    background-image: url(images/infinity.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    padding: 2%;
+}
+
+#video {
+  position: absolute;
+  width: 500px;
+  padding: 2%;
+  top: 50%;
+  left: 50%;
+transform: translate(-50%, -50%);
+}
+
+/*-----TYPOGRAPHY styles-----*/
+
+h1, p {
+    color: #ffffff;
+    background-color: inherit;
+}
+
+h1 {
+    font-family: gotham-bold, sans-serif;
+    text-align: center;
+    font-size: 6em;
+}
+
+p {
+    font-family: gotham-book, sans-serif;
+    padding: 0% 5% 0% 5%;
+    font-size: 0.9em;
+    line-height: 1.5em;
+}
+
+
+/*-----OVERLAY styles-----*/
+
+#intro {
+    background-color: #04050A;
+    color: inherit;
+    position: absolute;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+}
+
+#close {
+    position: absolute;
+    left: 45%;
+    top: 80%;
+    padding: 1.5%;
+    color: #ffffff;
+    font-family: gotham-light, sans-serif;
+    background-color: #42818A;
+    border-radius: 13px;
+}
+
+#close:hover {
+    background-color: #7FB5C7;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+
+/*-----START FOOTER styles-----*/
+
+footer {
+    clear: both;
+    position: fixed;
+    text-align: center;
+    left: 0;
+    bottom: 10px;
+    width: 100%;
+    z-index: 3;
+    font-size: 0.8em;
+    padding: 1%;
+    font-family: gotham-light, sans-serif;
+}
+
+footer a {
+    margin-right: 50px;
+}
+
+/*-----LINK styles-----*/
+a, a:link, a:visited {
+  text-decoration: none;
+  color: #ffffff;
+  background-color: inherit;
+}
+
+a:hover {
+  color: #42818A;
+  text-decoration: line-through;
+  background-color: inherit;
+}
+
+a:active {
+  color: #7FB5C7;
+  background-color:inherit;
+}
