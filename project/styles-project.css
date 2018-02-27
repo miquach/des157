@@ -14,7 +14,14 @@ img {
 h1, h2 {
     background-color: white;
     color: #f9ce64;
-    font-size: 1.5em;
+}
+
+h1 {
+  font-size: 1.5em;
+}
+
+h2 {
+  font-size: 1em;
 }
 
 p, li {
@@ -22,5 +29,48 @@ p, li {
     padding: 1.2%;
     background-color: white;
     color: inherit;
-    max-width: 1000px;
+    max-width: 900px;
+}
+
+/*-----START LINK STYLES-----*/
+
+li {
+    padding: 2%;
+}
+
+a, a:link, a:visited {
+    text-decoration: none;
+    color: #ffffff;
+    background-color: inherit;
+}
+
+a:hover {
+    color: #666666;
+    text-decoration: line-through;
+    background-color: inherit;
+}
+
+a:active {
+    color: #afe0e8;
+    background-color: inherit;
+}
+
+
+/*-----START FOOTER STYLES-----*/
+
+footer {
+    clear: both;
+    position: fixed;
+    text-align: center;
+    left: 0;
+    bottom: 10px;
+    width: 100%;
+    font-size: 0.8em;
+    padding: 1%;
+    background-color: #f9ce64;
+    color: inherit;
+}
+
+footer a {
+    margin-right: 80px;
 }
