@@ -6,6 +6,11 @@ body {
     padding: 5%;
 }
 
+main {
+  margin: auto;
+  width: 65%;
+}
+
 img {
     height: 50%;
     width: 50%;
