@@ -1,0 +1,100 @@
+@font-face {
+  font-family: 'gotham-bold';
+  src: url('fonts/gotham-bold.ttf');
+}
+
+@font-face {
+  font-family: 'gotham-book';
+  src: url('fonts/gotham-book.otf');
+}
+body {
+  margin: 0px;
+  overflow: hidden;
+  background: #000000;
+}
+
+article {
+  z-index: 2;
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  background-color: #666666;
+  padding: 5%;
+}
+
+article h1 {
+  font-family: gotham-bold, sans-serif;
+  color: #ffffff;
+}
+
+#close, #about {
+    position: absolute;
+    padding: 1.5%;
+    color: #ffffff;
+    font-family: gotham-light, sans-serif;
+    background-color: #42818A;
+    border-radius: 13px;
+}
+
+#close {
+  left: 45%;
+  top: 80%;
+}
+
+#about {
+    left: 90%;
+    top: 80%;
+}
+
+#close:hover, #about:hover {
+    background-color: #7FB5C7;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+#example {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/*-----START FOOTER styles-----*/
+
+footer {
+    clear: both;
+    position: fixed;
+    text-align: center;
+    left: 0;
+    bottom: 10px;
+    width: 100%;
+    z-index: 3;
+    font-size: 0.8em;
+    padding: 1%;
+    font-family: gotham-light, sans-serif;
+}
+
+footer a {
+    margin-right: 50px;
+}
+
+
+/*-----LINK styles-----*/
+
+a, a:link, a:visited {
+    text-decoration: none;
+    color: #ffffff;
+    background-color: inherit;
+}
+
+a:hover {
+    color: #42818A;
+    text-decoration: line-through;
+    background-color: inherit;
+}
+
+a:active {
+    color: #7FB5C7;
+    background-color: inherit;
+}
