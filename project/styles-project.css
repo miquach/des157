@@ -11,11 +11,6 @@ main {
   width: 65%;
 }
 
-img {
-    height: 50%;
-    width: 50%;
-}
-
 h1, h2 {
     background-color: white;
     color: #f9ce64;
