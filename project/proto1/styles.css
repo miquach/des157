@@ -1,0 +1,83 @@
+@font-face {
+  font-family: 'gotham-bold';
+  src: url('fonts/gotham-bold.ttf');
+}
+
+@font-face {
+  font-family: 'gotham-book';
+  src: url('fonts/gotham-book.otf');
+}
+body {
+  margin: 0px;
+  overflow: hidden;
+}
+/*
+#scene {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}*/
+
+
+#example {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+/*
+#leftHud {
+       position: absolute;
+       z-index: 3;
+       left: 0;
+       width: 45%;
+       height: 100%;
+       margin-left: 2.5%;
+   }
+   #rightHud {
+       position: absolute;
+       z-index: 3;
+       right: 0;
+       width: 45%;
+       height: 100%;
+       margin-right: 2.5%;
+   }
+   #guideCircleLeft {
+       position: absolute;
+       top: 50%; left: 50%;
+       transform: translate(-50%,-50%);
+       width: 2.5vw;
+       height: 2.5vw;
+       border-radius: 100%;
+   }
+   #guideCircleRight {
+       position: absolute;
+       top: 50%; left: 50%;
+       transform: translate(-50%,-50%);
+       width: 2.5vw;
+       height: 2.5vw;
+       border-radius: 100%;
+   }
+*/
+footer {
+    clear: both;
+    position: fixed;
+    text-align: center;
+    left: 0;
+    bottom: 10px;
+    width: 100%;
+    font-size: 0.8em;
+    padding: 1%;
+    color: inherit;
+    z-index: 5;
+}
+
+footer a {
+    margin-right: 80px;
+}
