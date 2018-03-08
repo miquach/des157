@@ -1,3 +1,8 @@
+/*Michelle Quach, Winter 2018*/
+
+
+/*-----START FONT STYLES-----*/
+
 @font-face {
     font-family: 'gotham-bold';
     src: url('fonts/gotham-bold.ttf');
@@ -8,14 +13,26 @@
     src: url('fonts/gotham-book.otf');
 }
 
+
+/*-----START STRUCTURAL STYLES-----*/
+
 body {
     margin: 0px;
     overflow: hidden;
+    background-color: #000000;
+    color: inherit;
 }
 
 button {
-  text-align: center;
-  padding: 0.5%;
+    background-color: #fea800;
+    color: #ffffff;
+    border: none;
+    font-size: 0.8em;
+    border-radius: 10px;
+    text-align: center;
+    padding: 0.5%;
+    margin: 0.2%;
+    font-family: "gotham-book", sans-serif;
 }
 
 #scene {
@@ -26,7 +43,8 @@ button {
     right: 0;
     bottom: 0;
 }
-#left_hud {
+
+#hudleft {
     pointer-events: none;
     position: absolute;
     z-index: 3;
@@ -35,7 +53,8 @@ button {
     height: 100%;
     margin-left: 2.5%;
 }
-#right_hud {
+
+#hudright {
     pointer-events: none;
     position: absolute;
     z-index: 3;
@@ -44,37 +63,69 @@ button {
     height: 100%;
     margin-right: 2.5%;
 }
-#guide_circle_left {
+
+#circleleft {
     pointer-events: none;
     position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 2.5em;
     height: 2.5em;
     border-radius: 100%;
 }
-#guide_circle_right {
+
+#circleright {
     pointer-events: none;
     position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 2.5em;
     height: 2.5em;
     border-radius: 100%;
-  }
+}
 
-  footer {
-      clear: both;
-      position: fixed;
-      text-align: center;
-      left: 0;
-      bottom: 10px;
-      width: 100%;
-      font-size: 0.8em;
-      padding: 1%;
-      z-index: 5;
-  }
 
-  footer a {
-      margin-right: 80px;
-  }
+/*-----START LINK STYLES-----*/
+
+li {
+    padding: 2%;
+}
+
+a, a:link, a:visited {
+    text-decoration: none;
+    color: #fea800;
+    background-color: inherit;
+}
+
+a:hover {
+    color: #ffffff;
+    text-decoration: line-through;
+    background-color: inherit;
+}
+
+a:active {
+    color: #fe7e00;
+    background-color: inherit;
+}
+
+
+/*-----START FOOTER STYLES-----*/
+
+footer {
+    font-family: "gotham-book", sans-serif;
+    clear: both;
+    position: fixed;
+    text-align: center;
+    left: 0;
+    bottom: 10px;
+    width: 100%;
+    font-size: 0.5em;
+    padding: 1%;
+    z-index: 5;
+}
+
+footer a {
+    margin-right: 80px;
+}
