@@ -1,0 +1,133 @@
+/*Michelle Quach, Winter 2018*/
+/*Note: Pointer-events does not validate in certain validators because it is still experimental. Glenda said she would allow for those to have a CSS validation error. */
+
+
+/*-----START FONT STYLES-----*/
+
+@font-face {
+    font-family: 'gotham-bold';
+    src: url('fonts/gotham-bold.ttf');
+}
+
+@font-face {
+    font-family: 'gotham-book';
+    src: url('fonts/gotham-book.otf');
+}
+
+
+/*-----START STRUCTURAL STYLES-----*/
+body {
+    margin: 0px;
+    overflow: hidden;
+}
+
+button {
+  display: none;
+}
+#scene {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+#left_hud {
+    pointer-events: none;
+    position: absolute;
+    z-index: 3;
+    left: 0;
+    width: 45%;
+    height: 100%;
+    margin-left: 2.5%;
+}
+#right_hud {
+    pointer-events: none;
+    position: absolute;
+    z-index: 3;
+    right: 0;
+    width: 45%;
+    height: 100%;
+    margin-right: 2.5%;
+}
+
+#guide_circle_left {
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 2.5em;
+  height: 2.5em;
+  border-radius: 100%;
+}
+#guide_circle_right {
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 2.5em;
+  height: 2.5em;
+  border-radius: 100%;
+}
+.bottom_hud_text_area{
+    position: absolute;
+    bottom: 1%;
+    padding: 2%;
+    overflow: hidden;
+    margin-bottom: 50px;
+    background-color: #ffffff;
+    color: #666666;
+    line-height: 1.5em;
+    font-size: 0.8em;
+    font-family: "gotham-book", sans-serif;
+}
+
+@media only screen and (min-width: 769px) {
+    /* declarations for desktop*/
+    /*meant to hide the footer in mobile view*/
+
+/*-----START LINK STYLES-----*/
+
+li {
+    padding: 2%;
+}
+
+a, a:link, a:visited {
+    text-decoration: none;
+    color: #fea800;
+    background-color: inherit;
+}
+
+a:hover {
+    color: #ffffff;
+    text-decoration: line-through;
+    background-color: inherit;
+}
+
+a:active {
+    color: #fe7e00;
+    background-color: inherit;
+}
+
+
+/*-----START FOOTER STYLES-----*/
+
+footer {
+    font-family: "gotham-book", sans-serif;
+    clear: both;
+    position: fixed;
+    text-align: center;
+    left: 0;
+    bottom: 10px;
+    width: 100%;
+    font-size: 0.5em;
+    padding: 1%;
+    z-index: 5;
+}
+
+footer a {
+    margin-right: 80px;
+}
+}
