@@ -21,7 +21,7 @@ var SELECTION_TIME = 1500;
 
 //alert message to encourage uers to switch to mobile
 function myAlert() {
-    alert("This website is designed for mobile view.\n Please use a mobile device and VR viewer for best results.\n\n Enjoy! ✧⁺⸜(●′▾‵●)⸝⁺✧");
+    alert("This website is designed for mobile view.\n Please use a mobile device and VR viewer for best results.\n\n Visit bit.ly/infinity-vr on your cellphone!\n Enjoy! ✧⁺⸜(●′▾‵●)⸝⁺✧");
 }
 
 myAlert();
@@ -193,7 +193,7 @@ function getTouchMsg(charm){
     switch (charm) {
         case "star":
         }
-    return msg + " The Infinity Room VR experience aims to digitize Yayoi Kusama's work. This project's goal is to extend diversity and accessibility to the art world by providing an open-access, virtual reality of an otherwise difficult-to-see show. This VR room mimics Yayoi Kusama's Aftermath of the Obliteration of Eternity (2009). "
+    return msg + " The Infinity Room VR experience aims to digitize Yayoi Kusama's work. This project's goal is to extend diversity and accessibility to the art world by providing an open-access, virtual reality of a limited art show. This VR room mimics Yayoi Kusama's Aftermath of the Obliteration of Eternity (2009). "
 }
 
 function resize() {
