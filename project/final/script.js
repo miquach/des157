@@ -1,8 +1,7 @@
 /*Michelle Quach, Winter 2018
 
 Adapted code from Google Cardboard's starter Code
-& Jason Peterson's VR starter code:
-https://github.com/brandnewpeterson/WebGL-VR-Starter-Code-Simple-HUD-Selections-*/
+& Jason Peterson's VR starter code*/
 
 /*Note: I do not have a lot of addEventListeners because my website doesn't really use the mouse, but Glenda said it was okay to substitute other interactions through the VR APIs*/
 
@@ -24,7 +23,7 @@ var max = { x: 80, y: 80, z: 80};
 
 //alert message to encourage uers to switch to mobile
 function myAlert() {
-    alert("This website is designed for mobile view.\n Please use a mobile device and VR viewer for best results.\n\n Make sure your phone is mounted on your viewer according to the instructions.\n\n Visit bit.ly/infinity-vr on your cellphone!\n\n\n\n Enjoy! ✧⁺⸜(●′▾‵●)⸝⁺✧");
+    alert("This website is designed for mobile view.\n Please use a mobile device and VR viewer for best results.\n\n Make sure your phone is mounted on your viewer according to the instructions.\n\n\n\n Visit bit.ly/vr-infinity on your cellphone!\n\n\n\n Enjoy! ✧⁺⸜(●′▾‵●)⸝⁺✧");
 }
 
 myAlert();
