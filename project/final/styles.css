@@ -14,13 +14,12 @@
 body {
     margin: 0px;
     overflow: hidden;
-    background-color: #000000;
-    color: inherit;
 }
 
 button {
   display: none;
 }
+
 #scene {
     position: absolute;
     z-index: 1;
@@ -29,6 +28,7 @@ button {
     right: 0;
     bottom: 0;
 }
+
 #hudleft {
     pointer-events: none;
     position: absolute;
