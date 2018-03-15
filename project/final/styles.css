@@ -83,7 +83,7 @@ button {
     font-family: "gotham-book", sans-serif;
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 769px) {
     /* declarations for desktop*/
     /*meant to hide the footer in mobile view*/
 
