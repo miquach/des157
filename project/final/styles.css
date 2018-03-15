@@ -29,7 +29,9 @@
 body {
     margin: 0px;
     overflow: hidden;
-    animation: 6s infinite light-timer;
+    animation: 20s infinite light-timer;
+    background-color: #000000;
+    color: inherit;
     min-width: 100%;
     min-height: 100%;
     top: 0px;
