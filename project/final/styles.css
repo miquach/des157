@@ -9,29 +9,13 @@
     src: url('fonts/gotham-book.otf');
 }
 
-/*-----ANIMATION styles-----*/
-
-@keyframes light-timer {
-    0%, 100% {
-        opacity: 0;
-    }
-    50% {
-        opacity: 1;
-    }
-}
 
 /*-----START STRUCTURAL STYLES-----*/
 body {
     margin: 0px;
     overflow: hidden;
-    animation: 20s infinite light-timer;
     background-color: #000000;
     color: inherit;
-    position: absolute;
-    min-width: 100%;
-    min-height: 100%;
-    top: 0px;
-    left: 0px;
 }
 
 button {
