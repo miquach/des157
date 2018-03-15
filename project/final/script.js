@@ -12,6 +12,8 @@ var effect, controls;
 var element, container;
 var selectableObjs = [];
 var width = window.innerWidth, height = window.innerHeight;
+var stars;
+var colors = [0xffffff, 0xCCF7FF, 0xFFF7DE];
 
 var clock = new THREE.Clock();
 
@@ -105,8 +107,10 @@ function init() {
 
     //function for skybox background
     drawSimpleSkybox();
+    //function for threejs rendered stars
+    drawStars();
     //function for selectable objects
-    //drawShapes();
+    drawShapes();
 
     window.addEventListener('resize', resize, false);
     setTimeout(resize, 1);
@@ -139,7 +143,25 @@ function drawSimpleSkybox() {
 
     scene.add(skyBox);
 }
+function drawStars() {
+    stars = new THREE.Group();
+    scene.add(stars);
 
+    var geometry = new THREE.TetrahedronGeometry(2, 5);
+    for (var i = 0; i < 1300; i++) {
+        var material = new THREE.MeshPhongMaterial({
+            color: colors[Math.floor(Math.random() * colors.length)]
+        });
+        //positions the stars
+        var mesh = new THREE.Mesh(geometry, material);
+        mesh.position.x = (Math.random() - 0.5) * 1500;
+        mesh.position.y = (Math.random() - 0.5) * 1500;
+        mesh.position.z = (Math.random() - 0.5) * 1500;
+        mesh.updateMatrix();
+        mesh.matrixAutoUpdate = false;
+        stars.add(mesh);
+    }
+}
 function drawShapes() {
 
     var manager = new THREE.LoadingManager();
@@ -289,7 +311,7 @@ function animate(t) {
     {
         if (object instanceof THREE.Group)
         {
-            object.rotation.y = object.rotation.y + 0.008;
+            object.rotation.y = object.rotation.y + 0.005;
 
             if (object.userData.touched){
                 object.scale.x = animScale.x;

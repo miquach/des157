@@ -1,4 +1,6 @@
 /*Michelle Quach, Winter 2018*/
+
+
 /*Note: Pointer-events does not validate in certain validators because it is still experimental.*/
 
 
@@ -10,14 +12,32 @@
 }
 
 
+/*-----ANIMATION styles-----*/
+
+@keyframes light-timer {
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+
 /*-----START STRUCTURAL STYLES-----*/
+
 body {
     margin: 0px;
     overflow: hidden;
+    animation: 6s infinite light-timer;
+    min-width: 100%;
+    min-height: 100%;
+    top: 0px;
+    left: 0px;
 }
 
 button {
-  display: none;
+    display: none;
 }
 
 #scene {
@@ -70,7 +90,8 @@ button {
     height: 2.5em;
     border-radius: 100%;
 }
-.text{
+
+.text {
     position: absolute;
     bottom: 1%;
     padding: 3%;
@@ -86,47 +107,38 @@ button {
 @media only screen and (min-width: 769px) {
     /* declarations for desktop*/
     /*meant to hide the footer in mobile view*/
-
-/*-----START LINK STYLES-----*/
-
-li {
-    padding: 2%;
-}
-
-a, a:link, a:visited {
-    text-decoration: none;
-    color: #fea800;
-    background-color: inherit;
-}
-
-a:hover {
-    color: #ffffff;
-    text-decoration: line-through;
-    background-color: inherit;
-}
-
-a:active {
-    color: #fe7e00;
-    background-color: inherit;
-}
-
-
-/*-----START FOOTER STYLES-----*/
-
-footer {
-    font-family: "gotham-book", sans-serif;
-    clear: both;
-    position: fixed;
-    text-align: center;
-    left: 0;
-    bottom: 10px;
-    width: 100%;
-    font-size: 0.5em;
-    padding: 1%;
-    z-index: 5;
-}
-
-footer a {
-    margin-right: 80px;
-}
+    /*-----START LINK STYLES-----*/
+    li {
+        padding: 2%;
+    }
+    a, a:link, a:visited {
+        text-decoration: none;
+        color: #fea800;
+        background-color: inherit;
+    }
+    a:hover {
+        color: #ffffff;
+        text-decoration: line-through;
+        background-color: inherit;
+    }
+    a:active {
+        color: #fe7e00;
+        background-color: inherit;
+    }
+    /*-----START FOOTER STYLES-----*/
+    footer {
+        font-family: "gotham-book", sans-serif;
+        clear: both;
+        position: fixed;
+        text-align: center;
+        left: 0;
+        bottom: 10px;
+        width: 100%;
+        font-size: 0.5em;
+        padding: 1%;
+        z-index: 5;
+    }
+    footer a {
+        margin-right: 80px;
+    }
 }
