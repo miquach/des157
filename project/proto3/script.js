@@ -1,65 +1,73 @@
+/*Michelle Quach, Winter 2018
+
+Adapted code from Google Cardboard's starter Code
+& Jason Peterson's VR starter code:
+https://github.com/brandnewpeterson/WebGL-VR-Starter-Code-Simple-HUD-Selections-*/
+
+/*Note: I do not have a lot of addEventListeners because my website doesn't really use the mouse, but Glenda said it was okay to substitute other interactions through the VR APIs*/
+
+//declare variables
 var camera, scene, renderer, sphere, cube;
 var left_bar, right_bar;
 var effect, controls;
 var element, container;
 var selectableObjs = [];
 var width = window.innerWidth, height = window.innerHeight;
+var stars;
+var colors = [0xffffff, 0xfea800, 0xfe7e00];
 
 var clock = new THREE.Clock();
 
-var min = { x: 5, y: 5, z: 5 }
+var min = { x: 8, y: 8, z: 8 }
 var touchTweenTo = new TWEEN.Tween(min);
-var max = { x: 15, y: 15, z: 15};
-
-//Set up animation cycle used on touched objects
-touchTweenTo.to(min, 500);
-touchTweenTo.easing(TWEEN.Easing.Bounce.InOut);
-touchTweenTo.repeat(1); // repeats forever
-touchTweenTo.start();
-
-var SELECTION_TIME = 1500;
+var max = { x: 35, y: 35, z: 35};
 
 //alert message to encourage uers to switch to mobile
 function myAlert() {
-    alert("This website is designed for mobile view.\n Please use a mobile device and VR viewer for best results.\n\n Visit bit.ly/infinity-vr on your cellphone!\n Enjoy! ✧⁺⸜(●′▾‵●)⸝⁺✧");
+    alert("This website is designed for mobile view.\n Please use a mobile device and VR viewer for best results.\n\n Make sure your phone is mounted on your viewer according to the instructions.\n\n Visit bit.ly/infinity-vr on your cellphone!\n\n\n\n Enjoy! ✧⁺⸜(●′▾‵●)⸝⁺✧");
 }
 
 myAlert();
 
-//Allow for fullscreen and detect return from
+//set up for Tween animation for selectable objects
+touchTweenTo.to(min, 800);
+touchTweenTo.easing(TWEEN.Easing.Bounce.InOut);
+touchTweenTo.repeat(1);
+touchTweenTo.start();
+
+var TIME = 1500;
+
+//fullscreen controls (did not work; if I delete this, the whole page disappears)
 var goFS = document.getElementById("goFS");
 document.getElementById("goFS").style.display = 'hide';
 goFS.addEventListener("click", function() {
     fullscreen(window.document.documentElement);
 }, false);
 
-//Build Three.js scene
-
+//functions for THREEJS scene
 init();
 animate();
 
 function init() {
 
-    left_bar = new ProgressBar.Circle('#guide_circle_left', {
-        strokeWidth: 10,
-        easing: 'easeInOut',
-        duration: SELECTION_TIME,
-        color: '#5FCCFF',
+    left_bar = new ProgressBar.Circle("#circleleft", {
+        strokeWidth: 13,
+        duration: TIME,
+        color: "#5FCCFF",
         trailWidth: 2
     });
 
-    right_bar = new ProgressBar.Circle('#guide_circle_right', {
-        strokeWidth: 10,
-        easing: 'easeInOut',
-        duration: SELECTION_TIME,
-        color: '#5FCCFF',
+    right_bar = new ProgressBar.Circle("#circleright", {
+        strokeWidth: 13,
+        duration: TIME,
+        color: "#5FCCFF",
         trailWidth: 2
     });
 
-    //Stereo scene
+    //Google Cardboard code for dual views
     renderer = new THREE.WebGLRenderer();
     element = renderer.domElement;
-    container = document.getElementById('scene');
+    container = document.getElementById("scene");
     container.appendChild(element);
 
     effect = new THREE.StereoEffect(renderer);
@@ -93,12 +101,13 @@ function init() {
     window.addEventListener('deviceorientation', setOrientationControls, true);
 
 
-    // Add lights
+    //lights
     var ambLight = new THREE.AmbientLight( 0x808080 ); // soft white light
     scene.add(ambLight);
 
-    //Add other scene elements
+    //function for skybox background
     drawSimpleSkybox();
+    //function for selectable objects
     drawShapes();
 
     window.addEventListener('resize', resize, false);
@@ -125,7 +134,6 @@ function drawSimpleSkybox() {
         uniforms: skyShader.uniforms, depthWrite: false, side: THREE.BackSide
     });
 
-    // create Mesh with cube geometry and add to the scene
     var skyBox = new THREE.Mesh(new THREE.BoxGeometry(500, 500, 500), skyMaterial);
     skyMaterial.needsUpdate = true;
 
