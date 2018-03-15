@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--Michelle Quach, DES157 Winter 2018-->
+<html lang="en">
+<head>
+    <title>Infinity Room</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link href="styles.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/84/three.min.js"></script>
+    <script src="js/third-party/threejs/StereoEffect.js"></script>
+    <script src="js/third-party/threejs/DeviceOrientationControls.js"></script>
+    <script src="js/third-party/threejs/OrbitControls.js"></script>
+    <script src="js/third-party/threejs/OBJLoader.js"></script>
+    <script src="js/third-party/progressbar.js"></script>
+    <script src="js/third-party/Tween.js"></script>
+</head>
+<body>
+  <!--DUAL SCREEN POINTERS-->
+    <div id="hudleft">
+        <div id="circleleft"></div>
+        <div class="text"><p class="info_text"></p></div>
+    </div>
+
+    <div id="hudright">
+        <div id="circleright"></div>
+        <div class="text"><p class="info_text"></p></div>
+    </div>
+
+<!--THREEJS VR SCENE-->
+    <section id="scene"><button id="goFS">Go fullscreen</button>
+    <section id="galaxy"></section>
+  </section>
+
+    <!--START FOOTER-->
+    <footer>
+        <a href="https://miquach.github.io/des157">home</a>
+        <a href="https://validator.w3.org/check?uri=referer">valid HTML 5</a>
+        <a href="https://jigsaw.w3.org/css-validator/check/referer">valid CSS</a>
+        <a href="https://threejs.org/">threejs library</a>
+        <a href="https://developers.google.com/vr/develop/web/vrview-web">Google Cardboard</a>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
