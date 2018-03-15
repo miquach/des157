@@ -106,7 +106,7 @@ function init() {
     //function for skybox background
     drawSimpleSkybox();
     //function for selectable objects
-    drawShapes();
+    //drawShapes();
 
     window.addEventListener('resize', resize, false);
     setTimeout(resize, 1);
@@ -289,7 +289,7 @@ function animate(t) {
     {
         if (object instanceof THREE.Group)
         {
-            object.rotation.y = object.rotation.y + 0.005;
+            object.rotation.y = object.rotation.y + 0.008;
 
             if (object.userData.touched){
                 object.scale.x = animScale.x;
