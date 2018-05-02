@@ -107,6 +107,8 @@ function init() {
 
     //function for skybox background
     drawSimpleSkybox();
+    //function for threejs rendered stars
+    drawStars();
     //function for selectable objects
     drawShapes();
 

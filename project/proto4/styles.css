@@ -12,11 +12,24 @@
 }
 
 
+/*-----ANIMATION styles-----*/
+
+@keyframes light-timer {
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+
 /*-----START STRUCTURAL STYLES-----*/
 
 body {
     margin: 0px;
     overflow: hidden;
+    animation: 20s infinite light-timer;
     background-color: #000000;
     color: inherit;
     min-width: 100%;
