@@ -18,13 +18,13 @@ var colors = [0xffffff, 0xfea800, 0xfe7e00];
 
 var clock = new THREE.Clock();
 
-var min = { x: 15, y: 15, z: 15 }
+var min = { x: 8, y: 8, z: 8 }
 var touchTweenTo = new TWEEN.Tween(min);
-var max = { x: 80, y: 80, z: 80};
+var max = { x: 35, y: 35, z: 35};
 
 //alert message to encourage uers to switch to mobile
 function myAlert() {
-    alert("This website is designed for mobile view.\n Please use a mobile device and VR viewer for best results.\n\n Make sure your phone is mounted on your viewer according to the instructions.\n\n\n\n Visit bit.ly/vr-infinity on your cellphone!\n\n\n\n Enjoy! ✧⁺⸜(●′▾‵●)⸝⁺✧");
+    alert("This website is designed for mobile view.\n Please use a mobile device and VR viewer for best results.\n\n Make sure your phone is mounted on your viewer according to the instructions.\n\n Visit bit.ly/infinity-vr on your cellphone!\n\n\n\n Enjoy! ✧⁺⸜(●′▾‵●)⸝⁺✧");
 }
 
 myAlert();
@@ -161,8 +161,8 @@ function drawShapes() {
             var color;
             if (fileName.indexOf("star") !== -1){
                 color = 0xFF6500;
-                geometry.scale.set(20, 20, 20);
-                geometry.position.z = -100;
+                geometry.scale.set(5, 5, 5);
+                geometry.position.z = -40;
                 geometry.position.y = 10;
                 selectableObjs.push(geometry);
                 geometry.userData = {name:"star", touched:false};
@@ -196,14 +196,12 @@ function updateHUDTxt(msg){
 }
 
 function getTouchMsg(charm){
-    var msg = "Welcome to the Infinity Room VR Experience.";
+    var msg = "Welcome to the Virtual Reality Infinity Room.";
 
     switch (charm) {
         case "star":
-        msg = msg + " This project aims to digitize Kusama's work to bring accessibility to an open-access environment: the web. By utilizing VR and the web, this project allows more people to experience Kusama's immersive artworks and installations.";
-        break;
         }
-    return msg + " Look around to learn more about this project."
+    return msg + " The Infinity Room VR experience aims to digitize Yayoi Kusama's work. This project's goal is to extend diversity and accessibility to the art world by providing an open-access, virtual reality of a limited art show. This VR room mimics Yayoi Kusama's Aftermath of the Obliteration of Eternity (2009). "
 }
 
 function resize() {
