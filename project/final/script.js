@@ -152,6 +152,7 @@ function drawShapes() {
     };
 
     var objLoader = new THREE.OBJLoader( manager );
+    objLoader.load( "models/heart_charm.obj", meshloader("models/heart_charm.obj"));
     objLoader.load( "models/moon_charm.obj", meshloader("models/moon_charm.obj"));
     objLoader.load( "models/star_charm.obj", meshloader("models/star_charm.obj"));
 
@@ -160,6 +161,14 @@ function drawShapes() {
 
             //Place in scene
             var color;
+            if (fileName.indexOf("heart") !== -1){
+                geometry.scale.set(20, 20, 20);
+                geometry.position.x = 100;
+                geometry.position.y = 10;
+                selectableObjs.push(geometry);
+                geometry.userData = {name:"heart", touched:false};
+                scene.add(geometry);
+            }
             if (fileName.indexOf("moon") !== -1){
                 geometry.scale.set(20, 20, 20);
                 geometry.position.x = -100;
@@ -208,6 +217,9 @@ function getTouchMsg(charm){
     var msg = "Welcome to the Infinity Room Virtual Reality Experience.";
 
     switch (charm) {
+      case "heart":
+          msg = msg + " This project is based on Yayoi Kusama's work. Yayoi Kusama is a Japanese contemporary artist who works with conceptual art dealing with identity, feminism, psychology, sexuality, life, and death. As one of the most prolific contemporary artists, Kusama works in minimalism, surrealism, pop art, and abstract expressionism.";
+          break;
       case "moon":
           msg = msg + " This room is based on Kusama's 'Aftermath of the Obliteration of Eternity (2009).' Kusama's original work examines the the death and rebirth of identity in the infinite. The flickering lights represent the eternal cycle of death and rebirth.";
           break;
