@@ -24,7 +24,7 @@ var max = { x: 35, y: 35, z: 35};
 
 //alert message to encourage uers to switch to mobile
 function myAlert() {
-    alert("This website is designed for mobile view.\n Please use a mobile device and VR viewer for best results.\n\n Make sure your phone is mounted on your viewer according to the instructions.\n\n Visit bit.ly/infinity-vr on your cellphone!\n\n\n\n Enjoy! ✧⁺⸜(●′▾‵●)⸝⁺✧");
+    alert("This website is designed for mobile view.\n Please use a mobile device and VR viewer for best results.\n\n Make sure your phone is mounted on your viewer according to the instructions.\n\n\n\n Visit bit.ly/vr-infinity on your cellphone!\n\n\n\n Enjoy! ✧⁺⸜(●′▾‵●)⸝⁺✧");
 }
 
 myAlert();
@@ -152,6 +152,7 @@ function drawShapes() {
     };
 
     var objLoader = new THREE.OBJLoader( manager );
+    objLoader.load( "models/moon_charm.obj", meshloader("models/moon_charm.obj"));
     objLoader.load( "models/star_charm.obj", meshloader("models/star_charm.obj"));
 
     function meshloader(fileName){
@@ -159,6 +160,14 @@ function drawShapes() {
 
             //Place in scene
             var color;
+            if (fileName.indexOf("moon") !== -1){
+                geometry.scale.set(20, 20, 20);
+                geometry.position.x = -100;
+                geometry.position.y = -10;
+                selectableObjs.push(geometry);
+                geometry.userData = {name:"moon", touched:false};
+                scene.add(geometry);
+            }
             if (fileName.indexOf("star") !== -1){
                 color = 0xFF6500;
                 geometry.scale.set(5, 5, 5);
@@ -196,15 +205,18 @@ function updateHUDTxt(msg){
 }
 
 function getTouchMsg(charm){
-    var msg = "Welcome to the Infinity Room Virtual Reality Experience";
+    var msg = "Welcome to the Infinity Room Virtual Reality Experience.";
 
     switch (charm) {
+      case "moon":
+          msg = msg + " This room is based on Kusama's 'Aftermath of the Obliteration of Eternity (2009).' Kusama's original work examines the the death and rebirth of identity in the infinite. The flickering lights represent the eternal cycle of death and rebirth.";
+          break;
         case "star":
         msg = msg + " This project aims to digitize Kusama's work to bring accessibility to an open-access environment: the web. By utilizing VR and the web, this project allows more people to experience Kusama's immersive artworks and installations.";
         break;
 
         }
-    return msg + "  Look around to learn more about this project. "
+    return msg + " Look around to learn more about this project. "
 }
 
 function resize() {
