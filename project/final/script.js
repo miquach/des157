@@ -1,7 +1,8 @@
 /*Michelle Quach, Winter 2018
 
 Adapted code from Google Cardboard's starter Code
-& Jason Peterson's VR starter code*/
+& Jason Peterson's VR starter code:
+https://github.com/brandnewpeterson/WebGL-VR-Starter-Code-Simple-HUD-Selections-*/
 
 /*Note: I do not have a lot of addEventListeners because my website doesn't really use the mouse, but Glenda said it was okay to substitute other interactions through the VR APIs*/
 
@@ -13,17 +14,17 @@ var element, container;
 var selectableObjs = [];
 var width = window.innerWidth, height = window.innerHeight;
 var stars;
-var colors = [0xffffff, 0xCCF7FF, 0xFFF7DE];
+var colors = [0xffffff, 0xfea800, 0xfe7e00];
 
 var clock = new THREE.Clock();
 
-var min = { x: 15, y: 15, z: 15 }
+var min = { x: 8, y: 8, z: 8 }
 var touchTweenTo = new TWEEN.Tween(min);
-var max = { x: 80, y: 80, z: 80};
+var max = { x: 35, y: 35, z: 35};
 
 //alert message to encourage uers to switch to mobile
 function myAlert() {
-    alert("This website is designed for mobile view.\n Please use a mobile device and VR viewer for best results.\n\n Make sure your phone is mounted on your viewer according to the instructions.\n\n\n\n Visit bit.ly/vr-infinity on your cellphone!\n\n\n\n Enjoy! ✧⁺⸜(●′▾‵●)⸝⁺✧");
+    alert("This website is designed for mobile view.\n Please use a mobile device and VR viewer for best results.\n\n Make sure your phone is mounted on your viewer according to the instructions.\n\n Visit bit.ly/infinity-vr on your cellphone!\n\n\n\n Enjoy! ✧⁺⸜(●′▾‵●)⸝⁺✧");
 }
 
 myAlert();
@@ -64,21 +65,20 @@ function init() {
     });
 
     //Google Cardboard code for dual views
-    renderer = new THREE.WebGLRenderer({
-      alpha: true
-    });
+    renderer = new THREE.WebGLRenderer();
+    element = renderer.domElement;
     container = document.getElementById("scene");
-    container.appendChild(renderer.domElement);
+    container.appendChild(element);
 
     effect = new THREE.StereoEffect(renderer);
 
     scene = new THREE.Scene();
 
-    camera = new THREE.PerspectiveCamera(90, window.innerWidth / window.innerHeight, 0.001, 1000);
+    camera = new THREE.PerspectiveCamera(90, 1, 0.001, 700);
     camera.position.set(0, -5, 0);
     scene.add(camera);
 
-    controls = new THREE.OrbitControls(camera, renderer.domElement);
+    controls = new THREE.OrbitControls(camera, element);
     controls.target.set(
         camera.position.x + 0.1,
         camera.position.y,
@@ -141,25 +141,7 @@ function drawSimpleSkybox() {
 
     scene.add(skyBox);
 }
-function drawStars() {
-    stars = new THREE.Group();
-    scene.add(stars);
 
-    var geometry = new THREE.TetrahedronGeometry(2, 5);
-    for (var i = 0; i < 1300; i++) {
-        var material = new THREE.MeshPhongMaterial({
-            color: colors[Math.floor(Math.random() * colors.length)]
-        });
-        //positions the stars
-        var mesh = new THREE.Mesh(geometry, material);
-        mesh.position.x = (Math.random() - 0.5) * 1500;
-        mesh.position.y = (Math.random() - 0.5) * 1500;
-        mesh.position.z = (Math.random() - 0.5) * 1500;
-        mesh.updateMatrix();
-        mesh.matrixAutoUpdate = false;
-        stars.add(mesh);
-    }
-}
 function drawShapes() {
 
     var manager = new THREE.LoadingManager();
@@ -170,35 +152,18 @@ function drawShapes() {
     };
 
     var objLoader = new THREE.OBJLoader( manager );
-    objLoader.load( "models/moon_charm.obj", meshloader("models/moon_charm.obj"));
     objLoader.load( "models/star_charm.obj", meshloader("models/star_charm.obj"));
-    objLoader.load( "models/heart_charm.obj", meshloader("models/heart_charm.obj"));
 
     function meshloader(fileName){
         return function(geometry){
 
             //Place in scene
             var color;
-            if (fileName.indexOf("moon") !== -1){
-                geometry.scale.set(20, 20, 20);
-                geometry.position.x = -100;
-                geometry.position.y = -10;
-                selectableObjs.push(geometry);
-                geometry.userData = {name:"moon", touched:false};
-                scene.add(geometry);
-            }
-            if (fileName.indexOf("heart") !== -1){
-                geometry.scale.set(20, 20, 20);
-                geometry.position.x = 100;
-                geometry.position.y = 10;
-                selectableObjs.push(geometry);
-                geometry.userData = {name:"heart", touched:false};
-                scene.add(geometry);
-            }
             if (fileName.indexOf("star") !== -1){
-                geometry.scale.set(20, 20, 20);
-                geometry.position.z = -100;
-                geometry.position.y = 40;
+                color = 0xFF6500;
+                geometry.scale.set(5, 5, 5);
+                geometry.position.z = -40;
+                geometry.position.y = 10;
                 selectableObjs.push(geometry);
                 geometry.userData = {name:"star", touched:false};
                 scene.add(geometry);
@@ -231,22 +196,12 @@ function updateHUDTxt(msg){
 }
 
 function getTouchMsg(charm){
-    var msg = "Welcome to the Infinity Rooms VR Experience.";
+    var msg = "Welcome to the Virtual Reality Infinity Room.";
 
     switch (charm) {
-        case "heart":
-            msg = msg + " This project is based on Yayoi Kusama's work. Yayoi Kusama is a Japanese contemporary artist who works with conceptual art dealing with identity, feminism, psychology, sexuality, life, and death. As one of the most prolific contemporary artists, Kusama works in minimalism, surrealism, pop art, and abstract expressionism.";
-            break;
-        case "moon":
-            msg = msg + " This room is based on Kusama's 'Aftermath of the Obliteration of Eternity (2009).' Kusama's original work examines the the death and rebirth of identity in the infinite. The flickering lights represent the eternal cycle of death and rebirth.";
-            break;
         case "star":
-            msg = msg + " This project aims to digitize Kusama's work to bring accessibility to an open-access environment: the web. By utilizing VR and the web, this project allows more people to experience Kusama's immersive artworks and installations.";
-            break;
-
         }
-
-    return msg + " Look around to learn more about this project."
+    return msg + " The Infinity Room VR experience aims to digitize Yayoi Kusama's work. This project's goal is to extend diversity and accessibility to the art world by providing an open-access, virtual reality of a limited art show. This VR room mimics Yayoi Kusama's Aftermath of the Obliteration of Eternity (2009). "
 }
 
 function resize() {
@@ -317,11 +272,13 @@ function animate(t) {
                 object.scale.z = animScale.z;
 
 
-                if(left_bar.value() == 0){
+                if(left_bar.value() == 0){//don't restart progress bar if already progress
                     left_bar.animate(1.0, {
-                    }, );
+                    }, function() {
+                        postSelectAction(object.userData.name);//add callback to left side progress bar to register completed selection
+                    });
                 }
-                if(right_bar.value() == 0){
+                if(right_bar.value() == 0){//don't restart if in progress
                     right_bar.animate(1.0);
                 }
 
