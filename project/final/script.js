@@ -196,12 +196,15 @@ function updateHUDTxt(msg){
 }
 
 function getTouchMsg(charm){
-    var msg = "Welcome to the Virtual Reality Infinity Room.";
+    var msg = "Welcome to the Infinity Room Virtual Reality Experience";
 
     switch (charm) {
         case "star":
+        msg = msg + " This project aims to digitize Kusama's work to bring accessibility to an open-access environment: the web. By utilizing VR and the web, this project allows more people to experience Kusama's immersive artworks and installations.";
+        break;
+
         }
-    return msg + " The Infinity Room VR experience aims to digitize Yayoi Kusama's work. This project's goal is to extend diversity and accessibility to the art world by providing an open-access, virtual reality of a limited art show. This VR room mimics Yayoi Kusama's Aftermath of the Obliteration of Eternity (2009). "
+    return msg + "  Look around to learn more about this project. "
 }
 
 function resize() {
