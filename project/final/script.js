@@ -18,9 +18,9 @@ var colors = [0xffffff, 0xfea800, 0xfe7e00];
 
 var clock = new THREE.Clock();
 
-var min = { x: 8, y: 8, z: 8 }
+var min = { x: 15, y: 15, z: 15 }
 var touchTweenTo = new TWEEN.Tween(min);
-var max = { x: 35, y: 35, z: 35};
+var max = { x: 80, y: 80, z: 80};
 
 //alert message to encourage uers to switch to mobile
 function myAlert() {
