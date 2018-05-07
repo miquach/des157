@@ -18,9 +18,9 @@ var colors = [0xffffff, 0xfea800, 0xfe7e00];
 
 var clock = new THREE.Clock();
 
-var min = { x: 15, y: 15, z: 15 }
+var min = { x: 80, y: 80, z: 80 }
 var touchTweenTo = new TWEEN.Tween(min);
-var max = { x: 80, y: 80, z: 80};
+var max = { x: 200, y: 200, z: 200};
 
 //alert message to encourage uers to switch to mobile
 function myAlert() {
@@ -102,7 +102,7 @@ function init() {
 
 
     //lights
-    var ambLight = new THREE.AmbientLight( 0x808080 ); // soft white light
+    var ambLight = new THREE.AmbientLight( 0xffffff); // soft white light
     scene.add(ambLight);
 
     //function for skybox background
@@ -162,7 +162,8 @@ function drawShapes() {
             //Place in scene
             var color;
             if (fileName.indexOf("heart") !== -1){
-                geometry.scale.set(20, 20, 20);
+              color = 0xfde873;
+                geometry.scale.set(100, 100, 100);
                 geometry.position.x = 100;
                 geometry.position.y = 10;
                 selectableObjs.push(geometry);
@@ -170,7 +171,8 @@ function drawShapes() {
                 scene.add(geometry);
             }
             if (fileName.indexOf("moon") !== -1){
-                geometry.scale.set(20, 20, 20);
+              color = 0xfde873;
+                geometry.scale.set(100, 100, 100);
                 geometry.position.x = -100;
                 geometry.position.y = -10;
                 selectableObjs.push(geometry);
@@ -178,15 +180,25 @@ function drawShapes() {
                 scene.add(geometry);
             }
             if (fileName.indexOf("star") !== -1){
-                color = 0xFF6500;
-                geometry.scale.set(20, 20, 20);
-                geometry.position.z = -40;
-                geometry.position.y = 10;
+                color = 0xfde873;
+                geometry.scale.set(80, 80, 80);
+                geometry.position.z = -50;
+                geometry.position.y = 5;
                 selectableObjs.push(geometry);
                 geometry.userData = {name:"star", touched:false};
                 scene.add(geometry);
             }
+            //Apply color to objects
+                geometry.traverse(function (child) {
+                    if (child instanceof THREE.Mesh) {
+                        var material = new THREE.MeshPhongMaterial(
+                            { color: color,
 
+                            }
+                        );
+                        child.material = material;
+                    }
+                });
         }
     }
 
@@ -218,17 +230,17 @@ function getTouchMsg(charm){
 
     switch (charm) {
       case "heart":
-          msg = msg + " This project is based on Yayoi Kusama's work. Yayoi Kusama is a Japanese contemporary artist who works with conceptual art dealing with identity, feminism, psychology, sexuality, life, and death. As one of the most prolific contemporary artists, Kusama works in minimalism, surrealism, pop art, and abstract expressionism.";
+          msg = msg + " This project is based on Yayoi Kusama, a Japanese contemporary artist who works with conceptual art.";
           break;
       case "moon":
-          msg = msg + " This room is based on Kusama's 'Aftermath of the Obliteration of Eternity (2009).' Kusama's original work examines the the death and rebirth of identity in the infinite. The flickering lights represent the eternal cycle of death and rebirth.";
+          msg = msg + " This room is based on Kusama's 'Aftermath of the Obliteration of Eternity (2009)' and death and rebirth of identity in the infinite.";
           break;
         case "star":
-        msg = msg + " This project aims to digitize Kusama's work to bring accessibility to an open-access environment: the web. By utilizing VR and the web, this project allows more people to experience Kusama's immersive artworks and installations.";
+        msg = msg + " This project aims to digitize Kusama's work to bring accessibility to an open-access web.";
         break;
 
         }
-    return msg + " Look around to learn more about this project. "
+    return msg + " Look around to learn more. "
 }
 
 function resize() {
@@ -291,7 +303,7 @@ function animate(t) {
     {
         if (object instanceof THREE.Group)
         {
-            object.rotation.y = object.rotation.y + 0.005;
+            object.rotation.y = object.rotation.y + 0.01;
 
             if (object.userData.touched){
                 object.scale.x = animScale.x;
