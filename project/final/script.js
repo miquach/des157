@@ -18,7 +18,7 @@ var colors = [0xffffff, 0xfea800, 0xfe7e00];
 
 var clock = new THREE.Clock();
 
-var min = { x: 80, y: 80, z: 80 }
+var min = { x: 90, y: 90, z: 90 }
 var touchTweenTo = new TWEEN.Tween(min);
 var max = { x: 200, y: 200, z: 200};
 
@@ -162,8 +162,8 @@ function drawShapes() {
             //Place in scene
             var color;
             if (fileName.indexOf("heart") !== -1){
-              color = 0xfde873;
-                geometry.scale.set(100, 100, 100);
+              color = 0xe3d443;
+                geometry.scale.set(120, 120, 120);
                 geometry.position.x = 100;
                 geometry.position.y = 10;
                 selectableObjs.push(geometry);
@@ -171,8 +171,8 @@ function drawShapes() {
                 scene.add(geometry);
             }
             if (fileName.indexOf("moon") !== -1){
-              color = 0xfde873;
-                geometry.scale.set(100, 100, 100);
+              color = 0xfdb873;
+                geometry.scale.set(120, 120, 120);
                 geometry.position.x = -100;
                 geometry.position.y = -10;
                 selectableObjs.push(geometry);
@@ -181,7 +181,7 @@ function drawShapes() {
             }
             if (fileName.indexOf("star") !== -1){
                 color = 0xfde873;
-                geometry.scale.set(80, 80, 80);
+                geometry.scale.set(100, 100, 100);
                 geometry.position.z = -50;
                 geometry.position.y = 5;
                 selectableObjs.push(geometry);
@@ -226,21 +226,21 @@ function updateHUDTxt(msg){
 }
 
 function getTouchMsg(charm){
-    var msg = "Welcome to the Infinity Room Virtual Reality Experience.";
+    var msg = " ";
 
     switch (charm) {
       case "heart":
-          msg = msg + " This project is based on Yayoi Kusama, a Japanese contemporary artist who works with conceptual art.";
+          msg = msg + "This project is based on the works of Yayoi Kusama, a Japanese contemporary artist who works with conceptual art.";
           break;
       case "moon":
-          msg = msg + " This room is based on Kusama's 'Aftermath of the Obliteration of Eternity (2009)' and death and rebirth of identity in the infinite.";
+          msg = msg + "This room is based on Kusama's 'Aftermath of the Obliteration of Eternity (2009)' and death and rebirth of identity in the infinite.";
           break;
         case "star":
-        msg = msg + " This project aims to digitize Kusama's work to bring accessibility to an open-access web.";
+        msg = msg + "Welcome to the Infinity Room Virtual Reality Experience. This project aims to digitize Kusama's work to bring accessibility to an open-access web. ";
         break;
 
         }
-    return msg + " Look around to learn more. "
+    return msg + " Look around to learn more."
 }
 
 function resize() {
